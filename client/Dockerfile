@@ -14,4 +14,4 @@ RUN npm install
 COPY . /usr/src/app-client
 
 # Command
-CMD ["npm", "start"]
+CMD ["npm", "preview"]
