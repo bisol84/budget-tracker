@@ -13,5 +13,5 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app-client
 
-# Command
-CMD ["npm", "run", "preview"]
+# Command (+ port correction)
+CMD ["npm", "run", "preview", "--", "--host"]
