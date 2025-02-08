@@ -7,8 +7,10 @@ WORKDIR /usr/src/app-client
 # Install app dependencies
 COPY package*.json /usr/src/app-client
 
-# Run
+# Run (nécessaire pour build)
 RUN npm install
+RUN npm run build
+
 
 # Bundle app source
 COPY . /usr/src/app-client
