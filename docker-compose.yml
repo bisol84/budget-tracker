@@ -1,29 +1,24 @@
 services:
   server:
-    build: ./server
-    expose:
-      - ${SERVER_PORT}
-    environment:
-      API_HOST: ${API_HOST}
-      APP_PORT: ${SERVER_PORT}
+    image: bisol84/myapp-server:latest
+    container_name: myapp-server
+    restart: unless-stopped
     ports:
-      - ${SERVER_PORT}:${SERVER_PORT}
-    volumes:
-      - ./server/src:/usr/src/app-server/src
-    command: npm run dev
+      - "3000:3000"
+    networks:
+      - myapp-network
 
   client:
-    build: ./client
-    expose:
-      - ${CLIENT_PORT}
-    environment:
-      API_HOST: ${API_HOST}
-      APP_PORT: ${CLIENT_PORT}
+    image: bisol84/myapp-client:latest
+    container_name: myapp-client
+    restart: unless-stopped
     ports:
-      - ${CLIENT_PORT}:${CLIENT_PORT}
-    volumes:
-      - ./client/src:/usr/src/app-client/src
-      - ./client/public:/usr/src/app-client/public
-    links:
+      - "5173:5173"
+    networks:
+      - myapp-network
+    depends_on:
       - server
-    command: npm run start
+
+networks:
+  myapp-network:
+    driver: bridge
