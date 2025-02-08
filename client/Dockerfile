@@ -9,11 +9,10 @@ COPY package*.json /usr/src/app-client
 
 # Run (nécessaire pour build)
 RUN npm install
-RUN npm run build
-
 
 # Bundle app source
 COPY . /usr/src/app-client
+RUN npm run build
 
-# Command (+ port correction)
+# Command
 CMD ["npm", "run", "preview", "--", "--host"]
