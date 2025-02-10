@@ -1,9 +1,10 @@
 import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   preview: {
     allowedHosts: ["myapp.191284.xyz"], // 🔥 Autorise cet hôte
   },
