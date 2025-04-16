@@ -7,7 +7,7 @@ import path from "path";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   preview: {
-    allowedHosts: ["myapp.191284.xyz"], // 🔥 Autorise cet hôte
+    allowedHosts: ["myapp.191284.xyz"], // Autorise cet hôte
   },
   resolve: {
     alias: {
